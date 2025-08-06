@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat',sans-serif;
+  background: #191414;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #1DB954;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color:white;
+}
+
+.logo img {
+  height: 30px;
+  width: 30px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-items li a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.nav-items li a:hover {
+  color: #bae7ca; /* Spotify green */
+}
+
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: #191414;
+  display: flex;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  position: relative;
+  padding: 12px 24px;
+  background-color: #1DB954;
+  color: #191414;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+  overflow: hidden;
+  display: inline-block;
+  z-index: 0;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: sheen-line 2s infinite;
+  z-index: 1;
+}
+
+.btn span {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes sheen-line {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+.hero-text {
+  flex: 1;
+  max-width: 50%;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+}
+/* Fade-in animation 1*/
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade1 {
+  animation-delay: 3s;
+
+}
+
+.fade2 {
+  animation-delay: 3.5s;
+}
+
+.fade3 {
+  animation-delay: 4s;
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #191414; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  color: white;
+}
+
+
+.logo-spin {
+  width: 80px;
+  animation: pulse 2s infinite ease-in-out;
+  margin-bottom: 20px;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* Text fade-in */
+.fade-in {
+  font-size: 1.4rem;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*heroVisual*/
+
+.hero-visual {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+
+}
+.hero-visual > div {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 10px;
+  color: white;
+}
+
+.pop{
+    background-color: #191414;
+}
+.metal{
+    background-color: #191414;
+}.soul{
+    background-color: #191414;
+}.country{
+    background-color: #191414;
+}.jazz{
+    background-color: #191414;
+}.kpop{
+    background-color: #191414;
+}.classical{
+    background-color: #191414;
+}.indie{
+    background-color: #191414;
+}.blues{
+    background-color: #191414;
+}.game{
+    background-color: #191414;
+}
+
+/*tray*/
+.album-tray-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.album-tray {
+  display: flex;
+  gap: 5px;
+  width: max-content;
+  animation: scrollLeft 30s linear infinite;
+}
+
+.album-tray img {
+  height:120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Tray Animation */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.album-tray-wrapper.reverse {
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 3px;
+}
+
+.album-tray.reverse {
+  display: flex;
+  gap: 2px;
+  animation: scrollRight 30s linear infinite;
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
