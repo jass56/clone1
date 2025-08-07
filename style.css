@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   background-color: #1DB954;
 }
 
@@ -112,11 +112,7 @@ nav ul {
 
 .hero-text {
   flex: 1;
-  max-width: 50%;
-  padding-top:100px;
-  padding-bottom:100px;
-  padding-left: 20px;
-  padding-right: 30px;
+  padding: 0 0;
   margin: 0 30px;
 }
 footer {
@@ -207,25 +203,30 @@ footer {
 
 .hero-visual {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+  padding:50px;
 }
+
 .hero-visual > div {
-  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
   border-radius: 10px;
+  box-shadow: black ;
   color: white;
-  height:90px;
-  width:100px;
-  
+  height:110px;
+  width:160px;
+  transition: transform 0.2s ease;
+  margin: 0;
+  padding: 0;
 }
 .hero-visual>div:hover{
-  height:95px;
-  width:105px;
+  transform: scale(1.13);
+  text-shadow: 2px 2px 6px rgb(0, 0, 0);
 }
 
 
@@ -233,11 +234,11 @@ footer {
     background-color: #f06412;
 }
 .metal{
-    background-color: #104d2b;
+    background-color: #881f1f;
 }.soul{
-    background-color: #6667c5;
+    background-color: #eafa05ea;
 }.country{
-    background-color: #d67e2b;
+    background-color: #498128;
 }.jazz{
     background-color: #db388a;
 }.kpop{
@@ -245,23 +246,23 @@ footer {
 }.classical{
     background-color:#aa5f93;
 }.indie{
-    background-color: #5035e7;
+    background-color:#f59649 ;
 }.blues{
-    background-color: #26c8ce;
+    background-color: #5035e7;
 }.game{
-    background-color: #24cf24;
+    background-color:#681bc0;
 }
 .hiphop{
   background-color: #df7e96;
 }
 .rock{
-  background-color: #412b5a;
-}
+  background-color:#24cf24;
+} 
 .rb{
   background-color: #dc9de4;
 }
 .folk{
-  background-color: #8baa8b;
+  background-color: #bb600a;
 }
 .disney{
   background-color: #242fcf;
@@ -270,7 +271,7 @@ footer {
   background-color: #f318b1;
 }
 .punk{
-  background-color: #eafa05ea;
+  background-color: #360c0cea;
 }
 .alt{
   background-color: #0c314e;
@@ -281,9 +282,116 @@ footer {
 .disco{
   background-color:#a2b3d8;
 }
-
-
-
+.latin{
+  background-color:#ff3d23;
+}
+.pop:hover {
+  background-image: url('images/pop.webp');
+  background-size:cover;
+  background-position: center;
+  text-shadow: 2px 2px 6px rgb(0, 0, 0);
+}
+.metal:hover {
+  background-image: url('images/metal.jpg');
+  background-size:cover;
+  background-position: center;
+}
+.kpop:hover {
+  background-image: url('images/kpop.jpg');
+  background-size: 125%;
+  background-position: center;
+}
+.soul:hover {
+  background-image: url('images/soul.webp');
+  background-size: 125%;
+  background-position: center;
+  
+  ;
+}
+.classical:hover {
+  background-image: url('images/classical.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.game:hover {
+  background-image: url('images/game.png');
+  background-size: 125%;
+  background-position: center;
+}
+.indie:hover {
+  background-image: url('images/indie.jpg');
+  background-size: 125%;
+  background-position: center;
+}
+.country:hover {
+  background-image: url('images/country.png');
+  background-size: cover;
+  background-position: center;
+}
+.hiphop:hover {
+  background-image: url('images/hiphop.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.rock:hover {
+  background-image: url('images/rock.jpg');
+  background-size: 125%;
+  background-position: center;
+}
+.rb:hover {
+  background-image: url('images/rb.jfif');
+  background-size: cover;
+  background-position: center;
+}
+.jazz:hover {
+  background-image: url('images/jazz.webp');
+  background-size: cover;
+  background-position: center;
+}
+.blues:hover {
+  background-image: url('images/blues.jfif');
+  background-size: cover;
+  background-position: center;
+}
+.disney:hover {
+  background-image: url('images/disney.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.folk:hover {
+  background-image: url('images/folk.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.anime:hover {
+  background-image: url('images/anime.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.alt:hover {
+  background-image: url('images/alt.webp');
+  background-size: cover;
+  background-position: center;
+}
+.punk:hover {
+  background-image: url('images/punk.webp');
+  background-size: cover;
+  background-position: center;
+}
+.afro:hover {
+  background-image: url('images/afro.jfif');
+  background-size: cover;
+  background-position: center;
+}.disco:hover {
+  background-image: url('images/disco.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.latin:hover {
+  background-image: url('images/latin.jpeg');
+  background-size: 145%;
+  background-position: center;
+}
 /*tray*/
 .album-tray-wrapper {
   width: 100%;
@@ -320,7 +428,7 @@ footer {
 
 .album-tray.reverse {
   display: flex;
-  gap: 2px;
+  gap: 5px;
   animation: scrollRight 30s linear infinite;
 }
 
@@ -329,3 +437,13 @@ footer {
   100% { transform: translateX(0); }
 }
 
+.text2{
+  text-align: center;
+  font-size:3rem;
+  font-weight: bolder;
+  padding-left: 200px;
+  padding-right:200px;
+  padding-top:100px;
+  padding-bottom:30px;
+
+}
