@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
   background-color: #1DB954;
 }
 
@@ -429,6 +429,7 @@ footer {
 .album-tray.reverse {
   display: flex;
   gap: 5px;
+  width: max-content;
   animation: scrollRight 30s linear infinite;
 }
 
@@ -437,13 +438,19 @@ footer {
   100% { transform: translateX(0); }
 }
 
-.text2{
+.reveal-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: block;
+  overflow: hidden;
+  line-height: 1.4;
   text-align: center;
-  font-size:3rem;
-  font-weight: bolder;
-  padding-left: 200px;
-  padding-right:200px;
-  padding-top:100px;
-  padding-bottom:30px;
+  padding-top: 120px;
+  padding-bottom: 40px;
+}
 
+.reveal-text .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
 }

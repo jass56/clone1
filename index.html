@@ -29,29 +29,6 @@
 
   </header>
   </div>
-  <div class="album-tray-wrapper">
-  <div class="album-tray">
-    <img src="images/a1.jpg" alt="Album 1" />
-    <img src="images/a2.jpg" alt="Album 2" />
-    <img src="images/a3.jpg" alt="Album 3" />
-    <img src="images/a4.jpg" alt="Album 4" />
-    <img src="images/a5.png" alt="Album 5" />
-    <img src="images/a6.png" alt="Album 6" />
-    <img src="images/a7.webp" alt="Album 7" />
-    <img src="images/a9.webp" alt="Album 9" />
-    <img src="images/a11.jpg" alt="Album 11" />
-    <img src="images/a8.jpg" alt="Album 1" />
-    <img src="images/a1.jpg" alt="Album 1" />
-    <img src="images/a2.jpg" alt="Album 2" />
-    <img src="images/a3.jpg" alt="Album 3" />
-    <img src="images/a4.jpg" alt="Album 4" />
-    <img src="images/a5.png" alt="Album 5" />
-    <img src="images/a6.png" alt="Album 6" />
-    <img src="images/a7.webp" alt="Album 7" />
-    <img src="images/a9.webp" alt="Album 9" />
-    <img src="images/a11.jpg" alt="Album 11" />
-  </div>
-  </div>
 
   <section class="hero">
     <div class="hero-text">
@@ -60,6 +37,33 @@
   <a href="#" class="btn fade fade3"><span>Get Spotify Free</span></a>
   </div>
   </section>
+
+   <div class="album-tray-wrapper">
+  <div class="album-tray">
+    <img src="images/a12.webp" alt="Album 12" />
+    <img src="images/a13.jpg" alt="Album 13" />
+    <img src="images/a14.jpg" alt="Album 14" />
+    <img src="images/a15.webp" alt="Album 15" />
+    <img src="images/a16.jpeg" alt="Album 16" />
+    <img src="images/a17.jpg" alt="Album 17" />
+    <img src="images/a18.png" alt="Album 18" />
+    <img src="images/a19.jpeg" alt="Album 19" />
+    <img src="images/a20.png" alt="Album 20" />
+    <img src="images/a21.webp" alt="Album 21" />
+    <img src="images/a22.jpg" alt="Album 22" />
+    <img src="images/a12.webp" alt="Album 12" />
+    <img src="images/a13.jpg" alt="Album 13" />
+    <img src="images/a14.jpg" alt="Album 14" />
+    <img src="images/a15.webp" alt="Album 15" />
+    <img src="images/a16.jpeg" alt="Album 16" />
+    <img src="images/a17.jpg" alt="Album 17" />
+    <img src="images/a18.png" alt="Album 18" />
+    <img src="images/a19.jpeg" alt="Album 19" />
+    <img src="images/a20.png" alt="Album 20" />
+    <img src="images/a21.webp" alt="Album 21" />
+    <img src="images/a22.jpg" alt="Album 22" />
+  </div>
+  </div>
 
    <div class="album-tray-wrapper reverse">
   <div class="album-tray reverse">
@@ -84,10 +88,9 @@
     <img src="images/a11.jpg" alt="Album 11" />
   </div>
   </div>
-  
-<div class="text2">
-  Uncover what makes you vibe
-</div>
+
+<h2 class="reveal-text" data-text="Uncover what makes you vibe"></h2>
+
 
   <div class="hero-visual">
   <div class="pop">Pop</div>
@@ -126,6 +129,37 @@
   });
 </script>
 <script src="background.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll(".reveal-text").forEach(el => {
+    const text = el.getAttribute("data-text");
+    el.innerHTML = [...text].map(char => {
+      // preserve spaces
+      return `<span class="letter">${char === " " ? "&nbsp;" : char}</span>`;
+    }).join("");
+
+    gsap.fromTo(
+      el.querySelectorAll(".letter"),
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        stagger: 0.05,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%", 
+          toggleActions: "play reverse play reverse", 
+          once: false
+        }
+      }
+    );
+  });
+</script>
 
 </body>
 </html>
