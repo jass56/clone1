@@ -12,7 +12,6 @@
   <img src="spotify-logo.svg" alt="Spotify Logo" class="logo-spin" />
   <h1 class="fade-in">Starting your jam...</h1>
 </div>
-<div id="main-content" style="display: none;">
   <header>
     <div class="logo">
         <img src="spotify_logo.svg" alt="spotify logo"/>
@@ -26,9 +25,11 @@
     <li><a href="#">Log In</a></li>
   </ul>
 </nav>
-
-  </header>
+  <div class="hamburger">
+  ☰
   </div>
+  </header>
+  <div id="main-content" style="display: none;">
 
   <section class="hero">
     <div class="hero-text">
@@ -89,7 +90,10 @@
   </div>
   </div>
 
-<h2 class="reveal-text" data-text="Uncover what makes you vibe"></h2>
+<div class="spotify-type">
+  <span id="type-area"></span>
+  <span class="cursor">|</span>
+</div>
 
 
   <div class="hero-visual">
@@ -115,51 +119,70 @@
   <div class="punk">Punk</div>
   <div class="latin">Latin</div>
 </div>
-
+</div>
   <footer>
     <p>Spotify Clone © 2025</p>
   </footer>
-</div>
 <script>
+  // Preloader 
   window.addEventListener("load", () => {
     setTimeout(() => {
       document.getElementById("preloader").style.display = "none";
       document.getElementById("main-content").style.display = "block";
     }, 3000); 
   });
-</script>
-<script src="background.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  document.querySelectorAll(".reveal-text").forEach(el => {
-    const text = el.getAttribute("data-text");
-    el.innerHTML = [...text].map(char => {
-      // preserve spaces
-      return `<span class="letter">${char === " " ? "&nbsp;" : char}</span>`;
-    }).join("");
-
-    gsap.fromTo(
-      el.querySelectorAll(".letter"),
-      { opacity: 0, x: -30 },
-      {
-        opacity: 1,
-        x: 0,
-        stagger: 0.05,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%", 
-          toggleActions: "play reverse play reverse", 
-          once: false
-        }
-      }
-    );
+  /* Hamburger Menu */
+  document.querySelector(".hamburger").addEventListener("click", function () {
+    const navMenu = document.querySelector("nav ul");
+    navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
   });
-</script>
+  
+  // Typing Animation
+  const lines = [
+  "Discover your sound ",
+  "Music for every mood ",
+  "Find genres that fit your vibe ",
+  "Explore something new today "
+];
 
+let lineIndex = 0;
+let charIndex = 0;
+let removing = false;
+
+const speed = 90;      
+const eraseSpeed = 45;  
+const waitBeforeErase = 1000;
+
+const typeTarget = document.getElementById("type-area");
+
+function typeLoop() {
+  const currentLine = lines[lineIndex];
+
+  if (!removing) {
+    
+    typeTarget.textContent = currentLine.slice(0, charIndex++);
+  } else {
+    
+    typeTarget.textContent = currentLine.slice(0, charIndex--);
+  }
+
+ 
+  if (!removing && charIndex === currentLine.length) {
+    removing = true;
+    setTimeout(typeLoop, waitBeforeErase);
+    return;
+  }
+
+  if (removing && charIndex === 0) {
+    removing = false;
+    lineIndex = (lineIndex + 1) % lines.length;
+  }
+
+  setTimeout(typeLoop, removing ? eraseSpeed : speed);
+}
+
+typeLoop();
+
+</script>
 </body>
 </html>
